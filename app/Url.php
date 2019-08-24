@@ -26,17 +26,5 @@ class Url extends Model
         return $this->belongsTo('App\User');
     }
 
-    /*public function toArray()
-    {
-        return [
-            'id'=>$this->id,                
-            'urlAcotada'=>$this->urlAcotada,
-            'titulo'=>$this->titulo,                
-            'visitas'=>$this->visitas,  
-            'activo'=>$this->activo,
-            "created_at" => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y'),
-            'categoria' => $this->categoria()
-            
-        ];
-    }*/
+  
 }
