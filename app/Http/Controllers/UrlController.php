@@ -2,11 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use	Illuminate\Support\Facades\Auth;
 use Log;
 use App\Url;
+use App\Categoria;
+use Illuminate\Http\Request;
+
 class UrlController extends Controller
 {
+
+   /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth.basic');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +47,6 @@ class UrlController extends Controller
     public function store(Request $request)
     {
         //
-        
         try {
             $url = new Url;
             $url->urlAcotada = $request->urlAcotada;
@@ -80,6 +93,23 @@ class UrlController extends Controller
     public function update(Request $request, $id)
     {
         //
+        //
+        try {
+            $url = Url::where('id', $id)->get()->first();
+            $url->urlAcotada = $request->urlAcotada;
+            $url->urlOriginal= $request->urlOriginal;            
+            $url->visitas= $request->visitas;
+            $url->activo= $request->activo;
+            $url->titulo = $request->titulo; 
+            $categoria = Categoria::where('id', $request->categoria)->get()->first(); 
+            $url->categoria()->associate($request->categoria);                                 
+            $url->save();
+        }
+        catch(\Exception $e)
+        {
+            Log::critical("No se puede actualizar ls Url:  {$e->getCode()}, {$e->getLine()}, {$e->getMessage()} ");
+            return response()->json("{$e->getMessage()}",500);
+        }
     }
 
     /**
@@ -90,6 +120,14 @@ class UrlController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $url = Url::where('id', $id)->get()->first(); 
+        if (!is_null($url)) {            
+            $url->delete();
+            return response()->json(
+                $url->toArray(), 200
+                            ); 
+        }
+        return response()->json("No se encuentra la Url deseada",400);
+        
     }
 }

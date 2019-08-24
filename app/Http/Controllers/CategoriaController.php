@@ -8,6 +8,18 @@ use App\Http\Resources\Categorias as CategoriaResource;
 use Log;
 class CategoriaController extends Controller
 {
+
+    
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth.basic');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -78,9 +90,16 @@ class CategoriaController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $categoria = Categoria::where('id', $id)->get();        
-        $categoria->nombre = $request->nombre;        
-        $categoria->save();
+        try {
+            $categoria = Categoria::where('id', $id)->get()->first();        
+            $categoria->nombre = $request->nombre;            
+            $categoria->save();
+        }
+        catch(\Exception $e)
+        {
+            Log::critical("No se puede actualizar la Categoria:  {$e->getCode()}, {$e->getLine()}, {$e->getMessage()} ");
+            return response()->json("{$e->getMessage()}",500);
+        }
     }
 
     /**
@@ -92,7 +111,13 @@ class CategoriaController extends Controller
     public function destroy($id)
     {
         //
-        $categoria = Categoria::where('id', $id)->get(); 
-        $categoria->delete();
+        $categoria = Categoria::where('id', $id)->get()->first();                 
+        if (!is_null($categoria)) {            
+            $categoria->delete();
+            return response()->json(
+                $categoria->toArray(), 200
+                            ); 
+        }
+        return response()->json("No se encuentra la Categoria deseada",400);
     }
 }
