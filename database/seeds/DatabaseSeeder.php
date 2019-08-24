@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(NoticiaSeeder::class);
         $this->call(RecursoSeeder::class);
         $this->call(UrlSeeder::class);
+        $this->call(GrupoSeeder::class);
     }
 }
