@@ -20,4 +20,17 @@ class Noticia extends Model
     {
         return $this->hasMany('App\User');
     }
+
+    public function toArray()
+    {
+        //return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'asunto' => $this->asunto,
+            'descripcion' => $this->descripcion,            
+            'activo'   => $this->activo,
+            "created_at" => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y'),
+            'updated_at' => Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->format('d-m-Y'),
+        ];
+    }
 }

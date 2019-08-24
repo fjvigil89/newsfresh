@@ -14,4 +14,14 @@ class Referido extends Model
      */
     protected $fillable = ['id', 'activo'];
 
+    public function toArray()
+    {
+          //return parent::toArray($request);
+          return [
+            'id' => $this->id,            
+            'activo'   => $this->activo,
+            "created_at" => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y'),
+            'updated_at' => Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->format('d-m-Y'),
+        ];
+    }
 }

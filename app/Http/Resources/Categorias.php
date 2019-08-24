@@ -19,7 +19,7 @@ class Categorias extends ResourceCollection
         return [
             'id' => $this->id,
             'nombre' => $this->nombre,
-            'activo' => $this->activo,
+            'activo' => $this->activo,            
             "created_at" => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y'),
             'updated_at' => Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->format('d-m-Y'),
         ];
