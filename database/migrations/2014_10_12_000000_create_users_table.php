@@ -20,8 +20,14 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean("activo")->default(true);
-            $table->rememberToken();
+            $table->rememberToken();            
             $table->timestamps();
+        });
+        Schema::table('users', function ($table) {
+            $table->string('api_token', 250)->after('password')
+                                ->unique()
+                                ->nullable()
+                                ->default(null);
         });
     }
 

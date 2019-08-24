@@ -12,13 +12,15 @@ class UrlSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i=0; $i < 50; $i++) {
+        for ($i=0; $i < 50; ) {
             \DB::table('urls')->insert(array(
                 'urlAcotada' =>$faker->url,
                 'urlOriginal' =>$faker->url,
                 'visitas' => $faker->randomDigitNotNull,
                 'titulo' => $faker->sentence($nbWords = 6, $variableNbWords = true),                               
                 'activo'  => $faker->boolean,
+                'categoria_id' => ++$i,
+                'user_id' => $i,
                 'created_at' => date('Y-m-d H:m:s'),
                 'updated_at' => date('Y-m-d H:m:s')
             ));

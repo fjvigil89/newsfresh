@@ -18,7 +18,7 @@ class Categoria extends Model
      */
     public function url()
     {
-        return $this->belongsTo('App\Url');
+        return $this->hasMany('App\Url');
     }
 
      /**
@@ -26,17 +26,17 @@ class Categoria extends Model
      */
     public function recurso()
     {
-        return $this->belongsTo('App\Recurso');
+        return $this->hasMany('App\Recurso');
     }
 
     public function toArray()
     {
         return [
-            'id' => $this->id,
-            'nombre' => $this->nombre,
-            'activo' => $this->activo,            
-            "created_at" => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y'),
-            'updated_at' => Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->format('d-m-Y'),
+            'id'            => $this->id,
+            'nombre'        => $this->nombre,
+            'activo'        => $this->activo,            
+            "created_at"    => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y'),
+            'updated_at'        => Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->format('d-m-Y'),
         ];
     }
 

@@ -15,7 +15,7 @@ class Recurso extends Model
 
     public function categoria()
     {
-        return $this->hasOne('App\Categoria');
+        return $this->belongsTo('App\Categoria');
     }
 
     public function toArray()

@@ -15,7 +15,7 @@ class CategoriaSeeder extends Seeder
         for ($i=0; $i < 50; $i++) {
             \DB::table('categorias')->insert(array(
                 'nombre' => $faker->firstName,
-                'activo'  => $faker->boolean,
+                'activo'  => $faker->boolean,                                
                 'created_at' => date('Y-m-d H:m:s'),
                 'updated_at' => date('Y-m-d H:m:s')
             ));

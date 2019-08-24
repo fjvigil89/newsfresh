@@ -17,4 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('categoria', 'CategoriaController');
+Route::resource('categoria', 'CategoriaController')->only([
+    'index', 'store','show', 'update', 'destroy'
+]);
+
+Route::resource('url', 'UrlController')->only([
+    'index', 'store','show', 'update', 'destroy'
+]);

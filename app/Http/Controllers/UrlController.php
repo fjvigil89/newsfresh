@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Categoria;
-use App\Http\Resources\Categorias as CategoriaResource;
 use Log;
-class CategoriaController extends Controller
+use App\Url;
+class UrlController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,17 +14,15 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
-        $categoria = Categoria::all();
-        if (!is_null($categoria)) {
+        //        
+        $url = Url::all();
+        if (!is_null($url)) {
             return response()->json(
-            $categoria->toArray(), 200
+            $url->toArray(), 200
                         );
         }
-        return response()->json("No existen Categorias",400);
+        return response()->json("No existen urls",400);
     }
-
-   
 
     /**
      * Store a newly created resource in storage.
@@ -35,14 +32,22 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
+        //
+        
         try {
-            $categoria = new Categoria;
-            $categoria->nombre = $request->nombre;            
-            $categoria->save();
+            $url = new Url;
+            $url->urlAcotada = $request->urlAcotada;
+            $url->urlOriginal= $request->urlOriginal;            
+            $url->visitas= $request->visitas;
+            $url->activo= $request->activo;
+            $url->titulo = $request->titulo;        
+            $url->categoria()->associate($request->categoria);
+            $url->user()->associate(Auth::user()->id);
+            $url->save();
         }
         catch(\Exception $e)
         {
-            Log::critical("No se puede crear una Categoria:  {$e->getCode()}, {$e->getLine()}, {$e->getMessage()} ");
+            Log::critical("No se puede crear una Url:  {$e->getCode()}, {$e->getLine()}, {$e->getMessage()} ");
             return response()->json("{$e->getMessage()}",500);
         }
     }
@@ -56,17 +61,14 @@ class CategoriaController extends Controller
     public function show($id)
     {
         //
-        $categoria = Categoria::where('id', $id)->get()->first();
-        if (!is_null($categoria)) {            
+        $url = Url::where('id', $id)->get()->first();
+        if (!is_null($url)) {            
             return response()->json(
-                $categoria->toArray(), 200
+                $url->toArray(), 200
                             ); 
         }
-        return response()->json("No se encuentra la Categoria deseada",400);
-        
+        return response()->json("No se encuentra la Url deseada",400);
     }
-
-  
 
     /**
      * Update the specified resource in storage.
@@ -78,9 +80,6 @@ class CategoriaController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $categoria = Categoria::where('id', $id)->get();        
-        $categoria->nombre = $request->nombre;        
-        $categoria->save();
     }
 
     /**
@@ -92,7 +91,5 @@ class CategoriaController extends Controller
     public function destroy($id)
     {
         //
-        $categoria = Categoria::where('id', $id)->get(); 
-        $categoria->delete();
     }
 }
