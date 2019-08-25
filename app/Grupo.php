@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Grupo extends Model
@@ -14,7 +14,7 @@ class Grupo extends Model
      */
     protected $fillable = ['id','url','seguidores', 'nombre','activo'];
 
-    public function toArray($request)
+    public function toArray()
     {
         //return parent::toArray($request);
         return [

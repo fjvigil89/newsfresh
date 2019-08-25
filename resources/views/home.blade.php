@@ -122,16 +122,137 @@
                       <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
                           <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Collapsible Group Item #3
+                              Model Grupo!
                           </button>
                         </h2>
                       </div>
                       <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                         <div class="card-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                           <table class="table table-hover">
+                                        <thead>
+                                        <tr>                        
+                                            <th scope="col">method</th>
+                                            <th scope="col">URI</th>
+                                            <th scope="col">Name</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>                        
+                                            <td>GET|HEAD</td>
+                                            <td>api/grupo</td>
+                                            <td>grupo.index</td>
+                                        </tr>
+                                        <tr>
+                                            <td>POST</td>
+                                            <td>api/grupo</td>
+                                            <td>grupo.store</td>
+                                        </tr>
+                                        <tr>
+                                            <td> GET|HEAD</td>
+                                            <td>api/grupo/{grupo}</td>
+                                            <td>grupo.show</td>
+                                        </tr>                        
+                                        <tr>
+                                            <td>PUT|PATCH</td>
+                                            <td>api/grupo/{grupo}</td>
+                                            <td>grupo.update</td>
+                                        </tr>
+                                        <tr>
+                                            <td> DELETE</td>
+                                            <td>api/grupo/{grupo}</td>
+                                            <td>grupo.destroy</td>
+                                        </tr>
+                    
+                                        </tbody>
+                                  </table>
                         </div>
                       </div>
                     </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Model User!
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                          <div class="card-body">
+                             <table class="table table-hover">
+                                          <thead>
+                                          <tr>                        
+                                              <th scope="col">method</th>
+                                              <th scope="col">URI</th>
+                                              <th scope="col">Name</th>
+                                          </tr>
+                                          </thead>
+                                          <tbody>                                          
+                                          <tr>
+                                              <td>POST</td>
+                                              <td>api/login</td>
+                                              <td>api.login</td>
+                                          </tr>
+                                          <tr>
+                                              <td>POST</td>
+                                              <td>api/logout</td>
+                                              <td>api.logout</td>
+                                          </tr>
+                                          <tr>
+                                              <td>POST</td>
+                                              <td>api/regiter</td>
+                                              <td>api.register</td>
+                                          </tr>
+                                          <tr>
+                                              <td>POST</td>
+                                              <td>login</td>
+                                              <td>login</td>
+                                          </tr>                                          
+                                          <tr>
+                                              <td> GET|HEAD</td>
+                                              <td>login</td>
+                                              <td>login</td>
+                                          </tr> 
+                                          <tr>
+                                              <td>POST</td>
+                                              <td>logout</td>
+                                              <td>logout</td>
+                                          </tr>                       
+                                          <tr>
+                                              <td>POST</td>
+                                              <td>password/email</td>
+                                              <td>password.email</td>
+                                          </tr> 
+                                          <tr>
+                                              <td> GET|HEAD</td>
+                                              <td>password/reset</td>
+                                              <td>password.request</td>
+                                          </tr>
+                                          <tr>
+                                              <td>POST</td>
+                                              <td>password/reset</td>
+                                              <td>password.update</td>
+                                          </tr> 
+                                          <tr>
+                                              <td> GET|HEAD</td>
+                                              <td>password/reset/{token}</td>
+                                              <td>password.reset</td>
+                                          </tr>  
+                                          <tr>
+                                              <td> GET|HEAD</td>
+                                              <td>register</td>
+                                              <td>register</td>
+                                          </tr> 
+                                          <tr>
+                                              <td> POST</td>
+                                              <td>register</td>
+                                              <td></td>
+                                          </tr>   
+                      
+                                          </tbody>
+                                    </table>
+                          </div>
+                        </div>
+                      </div>
                 </div>
                
             </div>
