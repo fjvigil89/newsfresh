@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'email_verified_at' => $faker->dateTime,
             'password' => $password,
-            'api_token' => Str::random(250),
+            'api_token' => Str::random(60),
             'activo'  => 1,
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s')
@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
                 'email' =>$faker->email,
                 'email_verified_at' => $faker->dateTime,
                 'password' => $faker->password,  
-                'api_token' => Str::random(250),                             
+                'api_token' => Str::random(60),                             
                 'activo'  => $faker->boolean,
                 'created_at' => date('Y-m-d H:m:s'),
                 'updated_at' => date('Y-m-d H:m:s')
