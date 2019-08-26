@@ -18,6 +18,7 @@ class CreateRecursosTable extends Migration
             $table->string('nombre', 40);
             $table->text('url');
             $table->boolean("activo")->default(false);
+            $table->unsignedInteger('categoria_id');
             $table->timestamps();
         });
     }

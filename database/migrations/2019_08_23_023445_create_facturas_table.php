@@ -18,7 +18,8 @@ class CreateFacturasTable extends Migration
             $table->integer('ingresos');
             $table->enum('estado', ['pendiente','entregado']);
             $table->year('anno');	
-            $table->string('mes', '10');                
+            $table->string('mes', '10'); 
+            $table->unsignedInteger('user_id');               
             $table->timestamps();
         });
     }

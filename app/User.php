@@ -19,7 +19,7 @@ class  User  extends  Authenticatable  implements  JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','token', 'activo',
+        'name', 'email', 'password', 'activo',
     ];
 
     /**
@@ -28,7 +28,7 @@ class  User  extends  Authenticatable  implements  JWTSubject
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token','token',
+        'password', 'remember_token',
     ];
 
     /**
@@ -63,6 +63,14 @@ class  User  extends  Authenticatable  implements  JWTSubject
         return $this->hasMany('App\Factura');
     }
 
+    /**
+     * Get the comments for the blog post.
+     */
+    public function referido()
+    {
+        return $this->hasMany('App\Referido');
+    }
+
      /**
      * Get the post that owns the comment.
      */
@@ -75,12 +83,13 @@ class  User  extends  Authenticatable  implements  JWTSubject
     {
           //return parent::toArray($request);
           return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'email' => $this->email,            
-            'activo'   => $this->activo,
-            "created_at" => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y'),
-            'updated_at' => Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->format('d-m-Y'),
+            'id'            => $this->id,
+            'name'          => $this->name,
+            'email'         => $this->email,            
+            'activo'        => $this->activo,
+            'noticia'       => $this->noticia,
+            "created_at"    => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y'),
+            'updated_at'    => Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->format('d-m-Y'),
         ];
     }
 }

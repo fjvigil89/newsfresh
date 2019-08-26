@@ -23,25 +23,50 @@ Route::post('/register', 'AuthController@register')->name('api.register');
 // estas rutas requiren de un token válido para poder accederse.
 
 Route::group(['middleware' => 'jwt.auth'], function () {
+
     Route::post('/logout', 'AuthController@logout')->name('api.logout');
     
     /*Route::get('/user', function (Request $request) {
         return $request->user();
     });*/
 
-    
+    //Rutas del Modelo Categoria
     Route::resource('categoria', 'CategoriaController')->only([
         'index', 'store','show', 'update', 'destroy'
     ]);
     
+    //Rutas del Modelo Url
     Route::resource('url', 'UrlController')->only([
         'index', 'store','show', 'update', 'destroy'
     ]);
 
+    //Rutas del Modelo Grupo
     Route::resource('grupo', 'GrupoController')->only([
         'index', 'store','show', 'update', 'destroy'
     ]);
+
+    //Rutas del Modelo Recurso
+    Route::resource('recurso', 'RecursoController')->only([
+        'index', 'store','show', 'update', 'destroy'
+    ]);
+
+    //Rutas del Modelo Factura
+    Route::resource('factura', 'FacturaController')->only([
+        'index', 'store','show', 'update', 'destroy'
+    ]);
+
+    //Rutas del Modelo Noticia
+    Route::resource('noticia', 'NoticiaController')->only([
+        'index', 'store','show', 'update', 'destroy'
+    ]);
+
+    //Rutas del Modelo Referido
+    Route::resource('referido', 'ReferidoController')->only([
+    'index', 'store','show', 'destroy'    
+    ]);
 });
+
+
 
 
 

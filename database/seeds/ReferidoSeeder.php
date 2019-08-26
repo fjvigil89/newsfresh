@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+
 use Faker\Factory as Faker;
-class RecursoSeeder extends Seeder
+class ReferidoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,12 +13,11 @@ class RecursoSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i=0; $i < 50;) {
-            \DB::table('recursos')->insert(array(
-                'nombre' => $faker->firstName,
-                'url' =>$faker->url,
+        for ($i=0; $i < 50; ) {
+            \DB::table('referidos')->insert(array(                                
+                'user_id'       => 1,
+                'id_asociado'   =>++$i,
                 'activo'  => $faker->boolean,
-                'categoria_id' => ++$i,
                 'created_at' => date('Y-m-d H:m:s'),
                 'updated_at' => date('Y-m-d H:m:s')
             ));

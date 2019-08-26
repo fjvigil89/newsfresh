@@ -15,7 +15,9 @@ class CreateReferidosTable extends Migration
     {
         Schema::create('referidos', function (Blueprint $table) {
             $table->bigIncrements('id');            
-            $table->boolean("activo")->default(true);
+            $table->boolean("activo")->default(true);            
+            $table->unsignedInteger('id_asociado');
+            $table->unsignedInteger('user_id');            
             $table->timestamps();
         });
     }

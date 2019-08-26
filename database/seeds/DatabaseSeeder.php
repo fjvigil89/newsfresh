@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RecursoSeeder::class);
         $this->call(UrlSeeder::class);
         $this->call(GrupoSeeder::class);
+        $this->call(ReferidoSeeder::class);
     }
 }

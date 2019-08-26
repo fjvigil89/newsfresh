@@ -26,7 +26,7 @@
                         </h2>
                       </div>
                   
-                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <div class="card-body">
                             <table class="table table-hover">
                                     <thead>
@@ -168,7 +168,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="card">
+                    <div class="card"> 
                         <div class="card-header" id="headingFour">
                           <h2 class="mb-0">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -252,7 +252,163 @@
                                     </table>
                           </div>
                         </div>
-                      </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingFive">
+                            <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                Model Noticia!
+                            </button>
+                            </h2>
+                        </div>
+                    
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <table class="table table-hover">
+                                        <thead>
+                                        <tr>                        
+                                            <th scope="col">method</th>
+                                            <th scope="col">URI</th>
+                                            <th scope="col">Name</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>                        
+                                            <td>GET|HEAD</td>
+                                            <td>api/noticia</td>
+                                            <td>noticia.index</td>
+                                        </tr>
+                                        <tr>
+                                            <td>POST</td>
+                                            <td>api/noticia</td>
+                                            <td>noticia.store</td>
+                                        </tr>
+                                        <tr>
+                                            <td> GET|HEAD</td>
+                                            <td>api/noticia/{noticia}</td>
+                                            <td>noticia.show</td>
+                                        </tr>                        
+                                        <tr>
+                                            <td>PUT|PATCH</td>
+                                            <td>api/noticia/{noticia}</td>
+                                            <td>noticia.update</td>
+                                        </tr>
+                                        <tr>
+                                            <td> DELETE</td>
+                                            <td>api/noticia/{noticia}</td>
+                                            <td>noticia.destroy</td>
+                                        </tr>
+                    
+                                        </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                            <div class="card-header" id="headingSix">
+                                <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                                    Model Recurso!
+                                </button>
+                                </h2>
+                            </div>
+                        
+                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <table class="table table-hover">
+                                            <thead>
+                                            <tr>                        
+                                                <th scope="col">method</th>
+                                                <th scope="col">URI</th>
+                                                <th scope="col">Name</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>                        
+                                                <td>GET|HEAD</td>
+                                                <td>api/recurso</td>
+                                                <td>recurso.index</td>
+                                            </tr>
+                                            <tr>
+                                                <td>POST</td>
+                                                <td>api/recurso</td>
+                                                <td>recurso.store</td>
+                                            </tr>
+                                            <tr>
+                                                <td> GET|HEAD</td>
+                                                <td>api/recurso/{recurso}</td>
+                                                <td>recurso.show</td>
+                                            </tr>                        
+                                            <tr>
+                                                <td>PUT|PATCH</td>
+                                                <td>api/recurso/{recurso}</td>
+                                                <td>recurso.update</td>
+                                            </tr>
+                                            <tr>
+                                                <td> DELETE</td>
+                                                <td>api/recurso/{recurso}</td>
+                                                <td>recurso.destroy</td>
+                                            </tr>
+                        
+                                            </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="card">
+                            <div class="card-header" id="headingSeven">
+                                <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                                    Model Referido!
+                                </button>
+                                </h2>
+                            </div>
+                        
+                            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <table class="table table-hover">
+                                            <thead>
+                                            <tr>                        
+                                                <th scope="col">method</th>
+                                                <th scope="col">URI</th>
+                                                <th scope="col">Name</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>                        
+                                                <td>GET|HEAD</td>
+                                                <td>api/referido</td>
+                                                <td>referido.index</td>
+                                            </tr>
+                                            <tr>
+                                                <td>POST</td>
+                                                <td>api/referido</td>
+                                                <td>referido.store</td>
+                                            </tr>
+                                            <tr>
+                                                <td> GET|HEAD</td>
+                                                <td>api/referido/{referido}</td>
+                                                <td>referido.show</td>
+                                            </tr>                        
+                                            <tr>
+                                                <td>PUT|PATCH</td>
+                                                <td>api/referido/{referido}</td>
+                                                <td>referido.update</td>
+                                            </tr>
+                                            <tr>
+                                                <td> DELETE</td>
+                                                <td>api/referido/{referido}</td>
+                                                <td>referido.destroy</td>
+                                            </tr>
+                        
+                                            </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>
                 </div>
                
             </div>
