@@ -247,6 +247,31 @@
                                               <td>register</td>
                                               <td></td>
                                           </tr>   
+                                          <tr>
+                                            <td> GET|HEAD</td>
+                                            <td>api/showAuthenticate</td>
+                                            <td>showAuthenticate</td>
+                                        </tr> 
+                                        <tr>
+                                            <td> GET|HEAD</td>
+                                            <td>api/user</td>
+                                            <td>user.index</td>
+                                        </tr> 
+                                        <tr>
+                                            <td> GET|HEAD</td>
+                                            <td>api/user/{user}</td>
+                                            <td>user.show</td>
+                                        </tr> 
+                                        <tr>
+                                            <td> PUT|PATCH</td>
+                                            <td>api/user/{user}</td>
+                                            <td>user.update</td>
+                                        </tr> 
+                                        <tr>
+                                            <td> DELETE</td>
+                                            <td>api/user/{user}</td>
+                                            <td>user.destroy</td>
+                                        </tr> 
                       
                                           </tbody>
                                     </table>

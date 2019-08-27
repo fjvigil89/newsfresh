@@ -24,6 +24,8 @@ class UserSeeder extends Seeder
             'email_verified_at' => $faker->dateTime,
             'password'          => $password,            
             'activo'            => 1,
+            'ranking'           => 'master',
+            'rol'               => 'Administrator',
             'noticia_id'        => 1,
             'created_at'        => date('Y-m-d H:m:s'),
             'updated_at'        => date('Y-m-d H:m:s')
@@ -36,6 +38,7 @@ class UserSeeder extends Seeder
                 'email_verified_at' => $faker->dateTime,
                 'password'          => $faker->password,                  
                 'activo'            => $faker->boolean,
+                'ranking'           => $faker->randomElement($array = array ('novato','principiante','clasico','lider','master')),
                 'noticia_id'        => ++$i,
                 'created_at'        => date('Y-m-d H:m:s'),
                 'updated_at'        => date('Y-m-d H:m:s')

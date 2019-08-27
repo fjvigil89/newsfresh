@@ -18,7 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');           
+            $table->string('password');    
+            $table->string("rol",13)->default('user');  
+            $table->string('ranking',15)->default('novato');     
             $table->boolean("activo")->default(true);
             $table->unsignedInteger('noticia_id')->nullable(); 
             $table->rememberToken();            

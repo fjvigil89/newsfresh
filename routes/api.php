@@ -64,10 +64,16 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::resource('referido', 'ReferidoController')->only([
     'index', 'store','show', 'destroy'    
     ]);
+
+     //Rutas del Modelo User
+    Route::resource('user', 'UserController')->only([
+    'index','show','update', 'destroy'    
+    ]);
+    Route::get('showAuthenticate', 'UserController@showAuthenticate')->name('showAuthenticate');
 });
 
-
-
+     
+ 
 
 
 
