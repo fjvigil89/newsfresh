@@ -19,7 +19,7 @@ class  User  extends  Authenticatable  implements  JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'activo',
+        'name', 'email','rol','password', 'activo','ranking',
     ];
 
     /**
@@ -87,7 +87,9 @@ class  User  extends  Authenticatable  implements  JWTSubject
             'name'          => $this->name,
             'email'         => $this->email,            
             'activo'        => $this->activo,
-            'noticia'       => $this->noticia,
+            'rol'           => $this->rol,
+            'noticia'       => $this->noticia, 
+            'ranking'       => $this->ranking,
             "created_at"    => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y'),
             'updated_at'    => Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->format('d-m-Y'),
         ];
