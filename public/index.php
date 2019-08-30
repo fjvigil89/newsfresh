@@ -1,4 +1,7 @@
+
+
 <?php
+
 // permite peticiones desde cualquier origen
 header('Access-Control-Allow-Origin: *');
 // permite peticiones con métodos GET, PUT, POST, DELETE y OPTIONS
