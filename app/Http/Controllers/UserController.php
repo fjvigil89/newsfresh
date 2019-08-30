@@ -84,12 +84,20 @@ class UserController extends Controller
     {
         try {
             $user = User::where('id', $id)->get()->first();
-            $user->name = $request->name;
-            $user->email = $request->email;
-            $user->ranking = $request->ranking;
-            $user->rol = $request->rol;
-            $user->password = Hash::make($request->password);
-            $user->activo = $request->activo;
+            $user->name             = $request->name;
+            $user->email            = $request->email;
+            $user->ranking          = $request->ranking;
+            $user->rol              = $request->rol;
+            $user->password         = Hash::make($request->password);
+            $user->activo           = $request->activo;
+           	$user->identidad 		= $request->identidad;
+            $user->direccion		= $request->direccion;
+            $user->telefono			= $request->telefono;
+            $user->pais				= $request->pais;
+            $user->estado			= $request->estado;
+            $user->ciudad			= $request->ciudad;
+            $user->tipo_cuenta		= $request->tipo_cuenta;
+            $user->numero_cuenta	= $request->numero_cuenta;
             $user->save();
         }
         catch(\Exception $e)

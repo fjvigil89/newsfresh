@@ -18,11 +18,20 @@ class AuthController extends Controller
 
     public  function  register(Request  $request) {
 
-	$user = new  User();
-	$user->name = $request->name;		
-	$user->email = $request->email;
-	$user->password = Hash::make($request->password);                
-	$user->activo = true;
+	$user 					= new  User();
+	$user->name 			= $request->name;		
+	$user->email 			= $request->email;
+	$user->password 		= Hash::make($request->password);                
+	$user->activo 			= true;
+	$user->identidad 		= $request->identidad;
+	$user->direccion		= $request->direccion;
+	$user->telefono			= $request->telefono;
+	$user->pais				= $request->pais;
+	$user->estado			= $request->estado;
+	$user->ciudad			= $request->ciudad;
+	$user->tipo_cuenta		= $request->tipo_cuenta;
+	$user->numero_cuenta	= $request->numero_cuenta;
+
 	$user->save();
 	
 	if ($this->loginAfterSignUp) {
