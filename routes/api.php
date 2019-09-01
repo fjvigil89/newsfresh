@@ -39,6 +39,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::resource('url', 'UrlController')->only([
         'index', 'store','show', 'update', 'destroy'
     ]);
+    Route::get('url_any_user/{user_id}', 'UrlController@url_any_user')->name('url_any_user');
+    Route::get('url_login_user', 'UrlController@url_login_user')->name('url_login_user');
 
     //Rutas del Modelo Grupo
     Route::resource('grupo', 'GrupoController')->only([
@@ -54,6 +56,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::resource('factura', 'FacturaController')->only([
         'index', 'store','show', 'update', 'destroy'
     ]);
+    Route::get('factura_any_user/{user_id}', 'FacturaController@factura_any_user')->name('factura_any_user');
+    Route::get('factura_login_user', 'FacturaController@factura_login_user')->name('factura_login_user');
 
     //Rutas del Modelo Noticia
     Route::resource('noticia', 'NoticiaController')->only([
@@ -70,6 +74,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     'index','show','update', 'destroy'    
     ]);
     Route::get('showAuthenticate', 'UserController@showAuthenticate')->name('showAuthenticate');
+    
 });
 
      

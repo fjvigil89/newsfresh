@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Log;
 use App\Factura;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Contracts\Providers\Auth;
 
 class FacturaController extends Controller
 {
@@ -126,5 +127,41 @@ class FacturaController extends Controller
         }
         return response()->json("No existe lo Factura",400);
 
+    }
+
+    /**
+     * Buscar Factura por usuario
+     * @param int $id
+     * @return \Iluminate\Http\Response
+     */
+    public function factura_any_user($user_id)
+    {
+        $factura= Factura::where('user_id',$user_id)->get();
+        if (!is_null($factura)) {                        
+            return response()->json(
+                $factura->toArray(), 200
+                            ); 
+        }
+        return response()->json("No se encuentra la Factura deseada",400);
+        
+        
+    }
+
+    /**
+     * Buscar Factura por usuario
+     * @param int $id
+     * @return \Iluminate\Http\Response
+     */
+    public function factura_login_user()
+    {
+        $factura= Factura::where('user_id',Auth::user()->id)->get();
+        if (!is_null($factura)) {                        
+            return response()->json(
+                $factura->toArray(), 200
+                            ); 
+        }
+        return response()->json("No se encuentra la Factura deseada",400);
+        
+        
     }
 }

@@ -112,6 +112,16 @@
                                             <td>api/url/{url}</td>
                                             <td>url.destroy</td>
                                         </tr>
+                                        <tr>                        
+                                            <td>GET|HEAD</td>
+                                            <td>api/url_any_user/{user_id}</td>
+                                            <td>url_any_user</td>
+                                        </tr>
+                                        <tr>                        
+                                            <td>GET|HEAD</td>
+                                            <td>api/url_login_user</td>
+                                            <td>url_login_user</td>
+                                        </tr>
                     
                                         </tbody>
                                   </table>

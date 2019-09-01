@@ -3,6 +3,7 @@
 namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Tymon\JWTAuth\Contracts\Providers\Auth;
 
 class Url extends Model
 {
@@ -26,6 +27,7 @@ class Url extends Model
         return $this->belongsTo('App\User');
     }
 
+    
     public function toArray()
     {
           //return parent::toArray($request);

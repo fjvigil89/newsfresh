@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class UrlController extends Controller
 {
+    
 
    /**
      * Create a new controller instance.
@@ -128,6 +129,42 @@ class UrlController extends Controller
                             ); 
         }
         return response()->json("No se encuentra la Url deseada",400);
+        
+    }
+
+    /**
+     * Buscar Url por usuario
+     * @param int $id
+     * @return \Iluminate\Http\Response
+     */
+    public function url_any_user($user_id)
+    {
+        $urls= Url::where('user_id',$user_id)->get();
+        if (!is_null($urls)) {                        
+            return response()->json(
+                $urls->toArray(), 200
+                            ); 
+        }
+        return response()->json("No se encuentra la Url deseada",400);
+        
+        
+    }
+
+    /**
+     * Buscar Url por usuario
+     * @param int $id
+     * @return \Iluminate\Http\Response
+     */
+    public function url_login_user()
+    {
+        $urls= Url::where('user_id',Auth::user()->id)->get();
+        if (!is_null($urls)) {                        
+            return response()->json(
+                $urls->toArray(), 200
+                            ); 
+        }
+        return response()->json("No se encuentra la Url deseada",400);
+        
         
     }
 }
