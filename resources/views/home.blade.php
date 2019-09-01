@@ -444,6 +444,66 @@
                                 </div>
                             </div>
                     </div>
+                    <div class="card">
+                        <div class="card-header" id="headingEigth">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEigth" aria-expanded="false" aria-controls="collapseEigth">
+                                  Model Factura!
+                            </button>
+                          </h2>
+                        </div>
+                        <div id="collapseEigth" class="collapse" aria-labelledby="headingEigth" data-parent="#accordionExample">
+                          <div class="card-body">
+                                  <table class="table table-hover">
+                                          <thead>
+                                          <tr>                        
+                                              <th scope="col">method</th>
+                                              <th scope="col">URI</th>
+                                              <th scope="col">Name</th>
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                          <tr>                        
+                                              <td>GET|HEAD</td>
+                                              <td>api/factura</td>
+                                              <td>factura.index</td>
+                                          </tr>
+                                          <tr>
+                                              <td>POST</td>
+                                              <td>api/factura</td>
+                                              <td>factura.store</td>
+                                          </tr>
+                                          <tr>
+                                              <td> GET|HEAD</td>
+                                              <td>api/factura/{factura}</td>
+                                              <td>factura.show</td>
+                                          </tr>                        
+                                          <tr>
+                                              <td>PUT|PATCH</td>
+                                              <td>api/factura/{factura}</td>
+                                              <td>factura.update</td>
+                                          </tr>
+                                          <tr>
+                                              <td> DELETE</td>
+                                              <td>api/factura/{factura}</td>
+                                              <td>factura.destroy</td>
+                                          </tr>
+                                          <tr>                        
+                                              <td>GET|HEAD</td>
+                                              <td>api/factura_any_user/{user_id}</td>
+                                              <td>factura_any_user</td>
+                                          </tr>
+                                          <tr>                        
+                                              <td>GET|HEAD</td>
+                                              <td>api/factura_login_user</td>
+                                              <td>factura_login_user</td>
+                                          </tr>
+                      
+                                          </tbody>
+                                    </table>
+                          </div>
+                        </div>
+                      </div>
                 </div>
                
             </div>
