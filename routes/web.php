@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/adsense', 'apiAdsenseController@index')->name('adsense');
+Route::get('/formAction', 'apiAdsenseController@formAction')->name('formAction');
