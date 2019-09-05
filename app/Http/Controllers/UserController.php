@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Log;
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use	Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
@@ -88,7 +89,9 @@ class UserController extends Controller
             $user->email            = $request->email;
             $user->ranking          = $request->ranking;
             $user->rol              = $request->rol;
-            $user->password         = Hash::make($request->password);
+            if($request->has('password')){
+                $user->password         = Hash::make($request->password);
+            }            
             $user->activo           = $request->activo;
            	$user->identidad 		= $request->identidad;
             $user->direccion		= $request->direccion;
