@@ -36,7 +36,7 @@ class UserController extends Controller
         return response()->json("No existen usuarios",400);
     }
 
- 
+
     /**
      * Display the specified resource.
      *
@@ -64,7 +64,7 @@ class UserController extends Controller
     public function showAuthenticate()
     {
         //
-        
+
         $user = Auth::user();
         if (!is_null($user)) {
             return response()->json(
@@ -91,7 +91,7 @@ class UserController extends Controller
             $user->rol              = $request->rol;
             if($request->has('password')){
                 $user->password         = Hash::make($request->password);
-            }            
+            }
             $user->activo           = $request->activo;
            	$user->identidad 		= $request->identidad;
             $user->direccion		= $request->direccion;
@@ -102,6 +102,9 @@ class UserController extends Controller
             $user->tipo_cuenta		= $request->tipo_cuenta;
             $user->numero_cuenta	= $request->numero_cuenta;
             $user->save();
+            return response()->json(
+                $user->toArray(), 200
+                            );
         }
         catch(\Exception $e)
         {
@@ -117,7 +120,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {        
+    {
         //
         $user = User::where('id', $id)->get()->first();
         if (!is_null($user) && !Auth::user()->id == $id) {

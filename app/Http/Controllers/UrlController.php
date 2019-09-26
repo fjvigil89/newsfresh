@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class UrlController extends Controller
 {
-    
+
 
    /**
      * Create a new controller instance.
@@ -21,7 +21,7 @@ class UrlController extends Controller
     {
         $this->middleware('jwt.auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +29,7 @@ class UrlController extends Controller
      */
     public function index()
     {
-        //        
+        //
         $url = Url::all();
         if (!is_null($url)) {
             return response()->json(
@@ -51,10 +51,10 @@ class UrlController extends Controller
         try {
             $url = new Url;
             $url->urlAcotada = $request->urlAcotada;
-            $url->urlOriginal= $request->urlOriginal;            
+            $url->urlOriginal= $request->urlOriginal;
             $url->visitas= $request->visitas;
             $url->activo= $request->activo;
-            $url->titulo = $request->titulo;        
+            $url->titulo = $request->titulo;
             $url->categoria()->associate($request->categoria);
             $url->user()->associate(Auth::user()->id);
             $url->save();
@@ -76,10 +76,10 @@ class UrlController extends Controller
     {
         //
         $url = Url::where('id', $id)->get()->first();
-        if (!is_null($url)) {            
+        if (!is_null($url)) {
             return response()->json(
                 $url->toArray(), 200
-                            ); 
+                            );
         }
         return response()->json("No se encuentra la Url deseada",400);
     }
@@ -98,12 +98,12 @@ class UrlController extends Controller
         try {
             $url = Url::where('id', $id)->get()->first();
             $url->urlAcotada = $request->urlAcotada;
-            $url->urlOriginal= $request->urlOriginal;            
+            $url->urlOriginal= $request->urlOriginal;
             $url->visitas= $request->visitas;
             $url->activo= $request->activo;
-            $url->titulo = $request->titulo; 
-            $categoria = Categoria::where('id', $request->categoria)->get()->first(); 
-            $url->categoria()->associate($request->categoria);                                 
+            $url->titulo = $request->titulo;
+            $categoria = Categoria::where('id', $request->categoria)->get()->first();
+            $url->categoria()->associate($request->categoria);
             $url->save();
         }
         catch(\Exception $e)
@@ -121,15 +121,15 @@ class UrlController extends Controller
      */
     public function destroy($id)
     {
-        $url = Url::where('id', $id)->get()->first(); 
-        if (!is_null($url)) {            
+        $url = Url::where('id', $id)->get()->first();
+        if (!is_null($url)) {
             $url->delete();
             return response()->json(
                 $url->toArray(), 200
-                            ); 
+                            );
         }
         return response()->json("No se encuentra la Url deseada",400);
-        
+
     }
 
     /**
@@ -140,14 +140,14 @@ class UrlController extends Controller
     public function url_any_user($user_id)
     {
         $urls= Url::where('user_id',$user_id)->get();
-        if (!is_null($urls)) {                        
+        if (!is_null($urls)) {
             return response()->json(
                 $urls->toArray(), 200
-                            ); 
+                            );
         }
         return response()->json("No se encuentra la Url deseada",400);
-        
-        
+
+
     }
 
     /**
@@ -158,13 +158,13 @@ class UrlController extends Controller
     public function url_login_user()
     {
         $urls= Url::where('user_id',Auth::user()->id)->get();
-        if (!is_null($urls)) {                        
+        if (!is_null($urls)) {
             return response()->json(
                 $urls->toArray(), 200
-                            ); 
+                            );
         }
         return response()->json("No se encuentra la Url deseada",400);
-        
-        
+
+
     }
 }
