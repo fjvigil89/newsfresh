@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Log;
-use App\Recurso;
+use App\SitioPermitido;
 use Illuminate\Http\Request;
 
-class RecursoController extends Controller
+class SitioPermitidoController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,11 +24,11 @@ class RecursoController extends Controller
     public function index()
     {
         //
-        $recurso = Recurso::all();
+        $recurso = SitioPermitido::all();
         if (!is_null($recurso)) {
             return response()->json(
                 $recurso->toArray(), 200
-                            ); 
+                            );
         }
         return response()->json("No existen los Recursos",400);
     }
@@ -42,8 +42,8 @@ class RecursoController extends Controller
     public function store(Request $request)
     {
         try{
-            $recurso = new Recurso;
-            $recurso->nombre    = $request->nombre; 
+            $recurso = new SitioPermitido();
+            $recurso->nombre    = $request->nombre;
             $recurso->url       = $request->url;
             $recurso->activo    = true;
             $recurso->categoria()->associate($request->categoria);
@@ -51,7 +51,7 @@ class RecursoController extends Controller
         }
         catch(\Exception $e)
         {
-            Log::critical("No se puede crear un Recurso:  {$e->getCode()}, {$e->getLine()}, {$e->getMessage()} ");
+            Log::critical("No se puede crear un Sitio Permitido:  {$e->getCode()}, {$e->getLine()}, {$e->getMessage()} ");
             return response()->json("{$e->getMessage()}",500);
         }
     }
@@ -65,11 +65,11 @@ class RecursoController extends Controller
     public function show($id)
     {
         //
-        $recurso = Recurso::where('id', $id)->get()->first();
+        $recurso = SitioPermitido::where('id', $id)->get()->first();
         if (!is_null($recurso)) {
             return response()->json(
                 $recurso->toArray(), 200
-                            ); 
+                            );
         }
         return response()->json("No existen el Recurso",400);
     }
@@ -85,8 +85,8 @@ class RecursoController extends Controller
     {
         //
         try{
-            $recurso = Recurso::where('id', $id)->get()->first();
-            $recurso->nombre    = $request->nombre; 
+            $recurso = SitioPermitido::where('id', $id)->get()->first();
+            $recurso->nombre    = $request->nombre;
             $recurso->url       = $request->url;
             $recurso->activo    = true;
             $recurso->categoria()->associate($request->categoria);
@@ -94,7 +94,7 @@ class RecursoController extends Controller
         }
         catch(\Exception $e)
         {
-            Log::critical("No se puede actualizar el Recurso:  {$e->getCode()}, {$e->getLine()}, {$e->getMessage()} ");
+            Log::critical("No se puede actualizar el Sitio Permitido:  {$e->getCode()}, {$e->getLine()}, {$e->getMessage()} ");
             return response()->json("{$e->getMessage()}",500);
         }
     }

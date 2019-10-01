@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Carbon\Carbon;
-class Recursos extends ResourceCollection
+class SitioPermitidos extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -18,7 +18,7 @@ class Recursos extends ResourceCollection
          return [
             'id' => $this->id,
             'nombre' => $this->nombre,
-            'url' => $this->url,            
+            'url' => $this->url,
             'activo'   => $this->activo,
             "created_at" => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y'),
             'updated_at' => Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->format('d-m-Y'),

@@ -4,7 +4,7 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Recurso extends Model
+class SitioPermitido extends Model
 {
    /**
      * The attributes that are mass assignable.
@@ -24,7 +24,7 @@ class Recurso extends Model
          return [
             'id'            => $this->id,
             'nombre'        => $this->nombre,
-            'url'           => $this->url,            
+            'url'           => $this->url,
             'activo'        => $this->activo,
             'categoria'     => $this->categoria,
             "created_at"    => Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('d-m-Y'),

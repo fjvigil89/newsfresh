@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
-class RecursoSeeder extends Seeder
+class SitioPermitidoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class RecursoSeeder extends Seeder
     {
         $faker = Faker::create();
         for ($i=0; $i < 50;) {
-            \DB::table('recursos')->insert(array(
+            \DB::table('sitios_permitidos')->insert(array(
                 'nombre' => $faker->firstName,
                 'url' =>$faker->url,
                 'activo'  => $faker->boolean,

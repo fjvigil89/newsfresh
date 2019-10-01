@@ -25,7 +25,7 @@ Route::post('/register', 'AuthController@register')->name('api.register');
 Route::group(['middleware' => 'jwt.auth'], function () {
 
     Route::post('/logout', 'AuthController@logout')->name('api.logout');
-    
+
     /*Route::get('/userlogued', function (Request $request) {
         return $request->user();
     });*/
@@ -34,7 +34,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::resource('categoria', 'CategoriaController')->only([
         'index', 'store','show', 'update', 'destroy'
     ]);
-    
+
     //Rutas del Modelo Url
     Route::resource('url', 'UrlController')->only([
         'index', 'store','show', 'update', 'destroy'
@@ -47,8 +47,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         'index', 'store','show', 'update', 'destroy'
     ]);
 
-    //Rutas del Modelo Recurso
-    Route::resource('recurso', 'RecursoController')->only([
+    //Rutas del Modelo Sitios Permitidos
+    Route::resource('sitio_permitido', 'SitioPermitidoController')->only([
         'index', 'store','show', 'update', 'destroy'
     ]);
 
@@ -66,19 +66,19 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
     //Rutas del Modelo Referido
     Route::resource('referido', 'ReferidoController')->only([
-    'index', 'store','show', 'destroy'    
+    'index', 'store','show', 'destroy'
     ]);
 
      //Rutas del Modelo User
     Route::resource('user', 'UserController')->only([
-    'index','show','update', 'destroy'    
+    'index','show','update', 'destroy'
     ]);
     Route::get('showAuthenticate', 'UserController@showAuthenticate')->name('showAuthenticate');
-    
+
 });
 
-     
- 
+
+
 
 
 
